@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evj-g0-aNt">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evj-g0-aNt" customClass="FancyView" customModule="MySocialApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qxv-zS-y5Z">
@@ -41,7 +41,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wk-Ux-z9F">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account automatically when you signing in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoK-xR-H2q">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account automatically when you sign in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoK-xR-H2q">
                                         <rect key="frame" x="8" y="8" width="359" height="44"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,7 +63,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZY-xJ-i87">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZY-xJ-i87" customClass="RoundButton" customModule="MySocialApp" customModuleProvider="target">
                                 <rect key="frame" x="127.5" y="171.5" width="120" height="120"/>
                                 <color key="backgroundColor" red="0.35643476247787476" green="0.44221311807632446" blue="0.69493949413299561" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -73,24 +73,24 @@
                                 <state key="normal" image="f"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dqd-tE-I4k">
-                                <rect key="frame" x="48" y="323.5" width="279" height="122"/>
+                                <rect key="frame" x="48" y="323.5" width="279" height="119"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pl5-Lf-0gb">
-                                        <rect key="frame" x="0.0" y="0.0" width="279" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pl5-Lf-0gb" customClass="FancyField" customModule="MySocialApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="279" height="25"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6KV-RQ-XRW">
-                                        <rect key="frame" x="0.0" y="46" width="279" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6KV-RQ-XRW" customClass="FancyField" customModule="MySocialApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="41" width="279" height="25"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1s-H6-Xhr">
-                                        <rect key="frame" x="0.0" y="92" width="279" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1s-H6-Xhr" customClass="FancyButton" customModule="MySocialApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="82" width="279" height="37"/>
                                         <color key="backgroundColor" red="0.80461961030960083" green="0.17255660891532898" blue="0.0010592375183477998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Sign In"/>
                                     </button>
@@ -103,6 +103,7 @@
                             <constraint firstItem="Dqd-tE-I4k" firstAttribute="top" secondItem="JZY-xJ-i87" secondAttribute="bottom" constant="32" id="2DV-Sq-s23"/>
                             <constraint firstItem="Evj-g0-aNt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9X1-y2-lij"/>
                             <constraint firstItem="JZY-xJ-i87" firstAttribute="top" secondItem="A4a-sC-SSV" secondAttribute="bottom" constant="16" id="Dax-dF-eun"/>
+                            <constraint firstItem="Dqd-tE-I4k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IQT-oM-8eT"/>
                             <constraint firstAttribute="trailing" secondItem="A4a-sC-SSV" secondAttribute="trailing" constant="16" id="Igd-xk-1Zj"/>
                             <constraint firstItem="JZY-xJ-i87" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jbs-Gh-RQe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dqd-tE-I4k" secondAttribute="trailing" constant="32" id="MKS-Pv-z6C"/>
