@@ -56,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				9A81E2981F2CFAEC003A6F0A /* MySocialApp */,
-				9A81E2B11F2CFC4A003A6F0A /* Resources */,
 				9A81E2971F2CFAEC003A6F0A /* Products */,
 				F94AD823DFA437EFFB7E7253 /* Pods */,
 				E0593334B3258CCDE4723169 /* Frameworks */,
@@ -74,10 +73,11 @@
 		9A81E2981F2CFAEC003A6F0A /* MySocialApp */ = {
 			isa = PBXGroup;
 			children = (
-				9A82076B1F2FAB7200AE8A00 /* Util */,
 				9A81E2B21F2CFC5E003A6F0A /* Model */,
 				9A81E2B01F2CFBFD003A6F0A /* View */,
 				9A81E2AD1F2CFBD9003A6F0A /* Controller */,
+				9A81E2B11F2CFC4A003A6F0A /* Resources */,
+				9A82076B1F2FAB7200AE8A00 /* Util */,
 			);
 			path = MySocialApp;
 			sourceTree = "<group>";
@@ -112,7 +112,6 @@
 				9A81E2AB1F2CFBAF003A6F0A /* GoogleService-Info.plist */,
 			);
 			name = Resources;
-			path = MySocialApp;
 			sourceTree = "<group>";
 		};
 		9A81E2B21F2CFC5E003A6F0A /* Model */ = {
