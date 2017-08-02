@@ -10,13 +10,23 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 
-class MainViewController: UIViewController {
+class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            print("AUTH: ID found in keychain")
+            performSegue(withIdentifier: "SegueToFeedViewController", sender: nil)
+        }
     }
 
     @IBAction func fbButtonPressed(_ sender: UIButton) {
@@ -44,10 +54,12 @@ class MainViewController: UIViewController {
                             print("AUTH: Unable to authenticate with Firebase using mail: \(String(describing: err!))")
                         } else {
                             print("AUTH: Successfully authenticated with Firebase using mail; account created")
+                            self.completeSignInWith(user)
                         }
                     }
                 } else {
                     print("AUTH: Successfully authenticated with Firebase using mail")
+                    self.completeSignInWith(user)
                 }
             }
         }
@@ -59,7 +71,16 @@ class MainViewController: UIViewController {
                 print("AUTH: Unable to authenticate with Firebase: \(String(describing: err!))")
             } else {
                 print("AUTH: Successfully authenticated with Firebase")
+                self.completeSignInWith(user)
             }
+        }
+    }
+    
+    func completeSignInWith(_ user: User?) {
+        if user != nil, let userID = user?.uid {
+            let keychainResult = KeychainWrapper.standard.set(userID, forKey: KEY_UID)
+            print("AUTH: Data saved to keychain: \(keychainResult)")
+            performSegue(withIdentifier: "SegueToFeedViewController", sender: nil)
         }
     }
 }

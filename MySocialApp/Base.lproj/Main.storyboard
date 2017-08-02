@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MySocialApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignInViewController" customModule="MySocialApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -41,14 +41,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wk-Ux-z9F">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account automatically when you sign in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoK-xR-H2q">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account automatically by signing in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoK-xR-H2q">
                                         <rect key="frame" x="8" y="8" width="359" height="44"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.16814601421356201" green="0.62334197759628296" blue="0.6269301176071167" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.18701684469999999" green="0.65866655110000005" blue="0.6705013514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="NoK-xR-H2q" firstAttribute="bottom" secondItem="6wk-Ux-z9F" secondAttribute="bottomMargin" id="2O0-2O-taU"/>
                                     <constraint firstItem="NoK-xR-H2q" firstAttribute="top" secondItem="6wk-Ux-z9F" secondAttribute="topMargin" id="8wf-zr-V4W"/>
@@ -125,15 +125,131 @@
                     <connections>
                         <outlet property="emailTextField" destination="Pl5-Lf-0gb" id="QyZ-1h-7pK"/>
                         <outlet property="passwordTextField" destination="6KV-RQ-XRW" id="9el-AL-9dh"/>
+                        <segue destination="Ec2-Mv-op1" kind="show" identifier="SegueToFeedViewController" id="l8G-v6-Z8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="9Ra-h2-iaT">
+            <objects>
+                <viewController id="Ec2-Mv-op1" customClass="FeedViewController" customModule="MySocialApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cz4-TS-Cp1"/>
+                        <viewControllerLayoutGuide type="bottom" id="INK-vs-Cu6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mMA-7B-gEW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oge-zi-27c" customClass="FancyView" customModule="MySocialApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j59-Lx-2P0">
+                                        <rect key="frame" x="8" y="20" width="44" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="4gb-TW-xmf"/>
+                                            <constraint firstAttribute="height" constant="30" id="CI9-VM-l95"/>
+                                        </constraints>
+                                        <state key="normal" image="sign-out">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signOutButtonPressed:" destination="Ec2-Mv-op1" eventType="touchUpInside" id="k7d-W8-vko"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y0-e5-FYB">
+                                        <rect key="frame" x="167" y="23" width="41.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23440444469999999" green="0.8242507577" blue="0.84008485079999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="9Y0-e5-FYB" firstAttribute="centerY" secondItem="j59-Lx-2P0" secondAttribute="centerY" id="I7F-3O-GbG"/>
+                                    <constraint firstItem="j59-Lx-2P0" firstAttribute="leading" secondItem="oge-zi-27c" secondAttribute="leading" constant="8" id="glJ-h8-Myb"/>
+                                    <constraint firstAttribute="height" constant="60" id="k6R-bA-fZH"/>
+                                    <constraint firstItem="9Y0-e5-FYB" firstAttribute="centerX" secondItem="oge-zi-27c" secondAttribute="centerX" id="prI-im-jz4"/>
+                                    <constraint firstAttribute="bottom" secondItem="j59-Lx-2P0" secondAttribute="bottom" constant="10" id="wnu-zP-XfY"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDY-6h-BIf" customClass="FancyView" customModule="MySocialApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="76" width="343" height="64"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bk0-ar-qYf">
+                                        <rect key="frame" x="8" y="8" width="327" height="48"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="49n-gu-LEn" customClass="CircleImageView" customModule="MySocialApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                                <color key="backgroundColor" red="0.18701684474945068" green="0.65866655111312866" blue="0.67050135135650635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="48" id="XGS-h3-FqV"/>
+                                                    <constraint firstAttribute="height" constant="48" id="v31-PY-Wx1"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tH4-OJ-X3c" customClass="FancyField" customModule="MySocialApp" customModuleProvider="target">
+                                                <rect key="frame" x="56" y="0.0" width="215" height="48"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2X1-z6-YYI" customClass="RoundButton" customModule="MySocialApp" customModuleProvider="target">
+                                                <rect key="frame" x="279" y="0.0" width="48" height="48"/>
+                                                <color key="backgroundColor" red="0.80461961029999995" green="0.17255660889999999" blue="0.0010592375180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="MKc-Q9-cMD"/>
+                                                    <constraint firstAttribute="width" constant="48" id="kqg-cu-Oti"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="add-post"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85806018114089966" green="0.87045294046401978" blue="0.89108961820602417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="bk0-ar-qYf" firstAttribute="leading" secondItem="MDY-6h-BIf" secondAttribute="leading" constant="8" id="8c2-CY-ZGa"/>
+                                    <constraint firstAttribute="trailing" secondItem="bk0-ar-qYf" secondAttribute="trailing" constant="8" id="9lL-xk-hnv"/>
+                                    <constraint firstAttribute="bottom" secondItem="bk0-ar-qYf" secondAttribute="bottom" constant="8" id="Tm5-jP-bra"/>
+                                    <constraint firstItem="bk0-ar-qYf" firstAttribute="top" secondItem="MDY-6h-BIf" secondAttribute="top" constant="8" id="Vu2-Js-Mlq"/>
+                                    <constraint firstAttribute="height" constant="64" id="kMr-do-oYx"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ms9-O7-4cH">
+                                <rect key="frame" x="0.0" y="156" width="375" height="511"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ms9-O7-4cH" firstAttribute="leading" secondItem="mMA-7B-gEW" secondAttribute="leading" id="40L-Ad-COt"/>
+                            <constraint firstItem="Ms9-O7-4cH" firstAttribute="top" secondItem="MDY-6h-BIf" secondAttribute="bottom" constant="16" id="68j-n5-e5v"/>
+                            <constraint firstItem="MDY-6h-BIf" firstAttribute="top" secondItem="oge-zi-27c" secondAttribute="bottom" constant="16" id="6VL-yI-d6z"/>
+                            <constraint firstItem="oge-zi-27c" firstAttribute="leading" secondItem="mMA-7B-gEW" secondAttribute="leading" id="8Db-6T-f2T"/>
+                            <constraint firstAttribute="trailing" secondItem="oge-zi-27c" secondAttribute="trailing" id="Hxh-1U-cDe"/>
+                            <constraint firstItem="INK-vs-Cu6" firstAttribute="top" secondItem="Ms9-O7-4cH" secondAttribute="bottom" id="Ijc-RL-1sh"/>
+                            <constraint firstItem="MDY-6h-BIf" firstAttribute="leading" secondItem="mMA-7B-gEW" secondAttribute="leading" constant="16" id="MDX-vl-6gm"/>
+                            <constraint firstAttribute="trailing" secondItem="Ms9-O7-4cH" secondAttribute="trailing" id="Szc-Yg-fF8"/>
+                            <constraint firstAttribute="trailing" secondItem="MDY-6h-BIf" secondAttribute="trailing" constant="16" id="fIG-91-I2X"/>
+                            <constraint firstItem="oge-zi-27c" firstAttribute="top" secondItem="mMA-7B-gEW" secondAttribute="top" id="kTG-O7-GOh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="SegueToSignInViewController" id="dQ4-Ci-9Ce"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BXR-Bv-UG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936.23188405797111" y="123.09782608695653"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="add-image" width="88" height="88"/>
+        <image name="add-post" width="88" height="88"/>
         <image name="f" width="352" height="328"/>
         <image name="logo" width="429" height="107"/>
+        <image name="sign-out" width="92" height="65"/>
     </resources>
 </document>
