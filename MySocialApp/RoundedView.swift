@@ -18,6 +18,7 @@ extension RoundedView where Self: UIView {
             instance.imageView?.contentMode = .scaleAspectFit
         } else if let instance = self as? UIImageView {
             instance.contentMode = .scaleAspectFit
+            instance.clipsToBounds = true
         }
     }
 }

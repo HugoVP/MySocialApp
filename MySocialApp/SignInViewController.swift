@@ -29,7 +29,7 @@ class SignInViewController: UIViewController {
         
         signInButtonView.addDropShadow()
         
-        /* Add done button to text fields */
+        /* Add ok button to text fields */
         addOKButton()
     }
     

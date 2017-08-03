@@ -244,6 +244,7 @@
                         <outlet property="addPostButtonView" destination="2X1-z6-YYI" id="29a-ir-r6y"/>
                         <outlet property="controlsView" destination="MDY-6h-BIf" id="fnq-iS-WsI"/>
                         <outlet property="headerView" destination="oge-zi-27c" id="ZdW-6R-Wej"/>
+                        <outlet property="tableView" destination="Ms9-O7-4cH" id="RDg-v3-IQm"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="SegueToSignInViewController" id="dQ4-Ci-9Ce"/>
                     </connections>
                 </viewController>
