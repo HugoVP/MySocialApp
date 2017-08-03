@@ -28,6 +28,9 @@ class SignInViewController: UIViewController {
         fbButtonView.rounded()
         
         signInButtonView.addDropShadow()
+        
+        /* Add done button to text fields */
+        addOKButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,6 +38,66 @@ class SignInViewController: UIViewController {
         
         if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
             print("AUTH: ID found in keychain")
+            performSegue(withIdentifier: "SegueToFeedViewController", sender: nil)
+        }
+    }
+    
+    func addOKButton() {
+        let toolbar = UIToolbar(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: view.frame.width,
+                height: 30
+            )
+        )
+        
+        let flexSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil
+        )
+        
+        let doneBtn = UIBarButtonItem(
+            title: "OK",
+            style: .done,
+            target: self,
+            action: #selector(okButtonPressed)
+        )
+        
+        toolbar.setItems(
+            [
+                flexSpace,
+                doneBtn
+            ],
+            
+            animated: false
+        )
+        
+        toolbar.sizeToFit()
+        emailTextField.inputAccessoryView = toolbar
+        passwordTextField.inputAccessoryView = toolbar
+    }
+    
+    func okButtonPressed() {
+        view.endEditing(true)
+    }
+    
+    func firebaseAuth(_ credencial: AuthCredential) {
+        Auth.auth().signIn(with: credencial) { (user, err) in
+            if err != nil {
+                print("AUTH: Unable to authenticate with Firebase: \(String(describing: err!))")
+            } else {
+                print("AUTH: Successfully authenticated with Firebase")
+                self.completeSignInWith(user)
+            }
+        }
+    }
+    
+    func completeSignInWith(_ user: User?) {
+        if user != nil, let userID = user?.uid {
+            let keychainResult = KeychainWrapper.standard.set(userID, forKey: KEY_UID)
+            print("AUTH: Data saved to keychain: \(keychainResult)")
             performSegue(withIdentifier: "SegueToFeedViewController", sender: nil)
         }
     }
@@ -72,25 +135,6 @@ class SignInViewController: UIViewController {
                     self.completeSignInWith(user)
                 }
             }
-        }
-    }
-
-    func firebaseAuth(_ credencial: AuthCredential) {
-        Auth.auth().signIn(with: credencial) { (user, err) in
-            if err != nil {
-                print("AUTH: Unable to authenticate with Firebase: \(String(describing: err!))")
-            } else {
-                print("AUTH: Successfully authenticated with Firebase")
-                self.completeSignInWith(user)
-            }
-        }
-    }
-    
-    func completeSignInWith(_ user: User?) {
-        if user != nil, let userID = user?.uid {
-            let keychainResult = KeychainWrapper.standard.set(userID, forKey: KEY_UID)
-            print("AUTH: Data saved to keychain: \(keychainResult)")
-            performSegue(withIdentifier: "SegueToFeedViewController", sender: nil)
         }
     }
 }
