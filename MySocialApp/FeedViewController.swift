@@ -18,6 +18,7 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class FeedViewController: UIViewController {
         
         controlsView.addDropShadow()
         
-        addImgImageView.addDropShadow()
+//        addImgImageView.addDropShadow()
         addImgImageView.rounded()
         
         addPostButtonView.addDropShadow()
@@ -36,11 +37,13 @@ class FeedViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(PostCell.self)
         
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             if let snaps = snapshot.children.allObjects as? [DataSnapshot] {
                 snaps.forEach { (snap) in
-                    print("snap: \(snap)")
-                    
                     if let postDict = snap.value as? Dictionary<String, Any> {
                         let post = Post(
                             postKey: snap.key,
@@ -48,7 +51,6 @@ class FeedViewController: UIViewController {
                         )
                         
                         self.posts.append(post)
-                        print("post: \(post)")
                     }
                 }
             }
@@ -62,6 +64,10 @@ class FeedViewController: UIViewController {
         print("AUTH: ID removed from keychain: \(keychainResult)")
         try! Auth.auth().signOut()
         performSegue(withIdentifier: "SegueToSignInViewController", sender: "nil")
+    }
+    
+    @IBAction func addImgImageViewPressed(_sender: UIButton) {
+        present(imagePicker, animated: true, completion: nil)
     }
 }
 
@@ -82,11 +88,23 @@ extension FeedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
-//        print("post: \(post)")
-        
         let postCell = tableView.dequeueReusableCell(for: indexPath) as PostCell
-        postCell.configurePostCell(post)
+        postCell.configureCell(post)
         
         return postCell
+    }
+}
+
+extension FeedViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            addImgImageView.image = image
+        } else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            addImgImageView.image = image
+        } else {
+            print("A valid image wasn't selected")
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
 }

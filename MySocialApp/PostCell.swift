@@ -22,7 +22,7 @@ class PostCell: UITableViewCell, NibLoadableView {
         profileImageView.rounded()
     }
     
-    func configurePostCell(_ post: Post) {
+    func configureCell(_ post: Post) {
         self.post = post
         captionLabelView.text = post.caption
         likesLabelView.text = "Likes \(post.likes)"

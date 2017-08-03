@@ -185,13 +185,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bk0-ar-qYf">
                                         <rect key="frame" x="8" y="8" width="327" height="48"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="49n-gu-LEn" customClass="CircleImageView" customModule="MySocialApp" customModuleProvider="target">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="jYd-Ta-4cz" customClass="CircleImageView" customModule="MySocialApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                                                <color key="backgroundColor" red="0.18701684474945068" green="0.65866655111312866" blue="0.67050135135650635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.18701684469999999" green="0.65866655110000005" blue="0.6705013514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="48" id="XGS-h3-FqV"/>
-                                                    <constraint firstAttribute="height" constant="48" id="v31-PY-Wx1"/>
+                                                    <constraint firstAttribute="height" constant="48" id="ReL-CF-QRL"/>
+                                                    <constraint firstAttribute="width" constant="48" id="UNj-5Y-11K"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Jjf-4s-mFH" appends="YES" id="7uO-fj-JbW"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tH4-OJ-X3c" customClass="FancyField" customModule="MySocialApp" customModuleProvider="target">
                                                 <rect key="frame" x="56" y="0.0" width="215" height="48"/>
@@ -240,7 +244,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addImgImageView" destination="49n-gu-LEn" id="Vyr-ct-n1O"/>
+                        <outlet property="addImgImageView" destination="jYd-Ta-4cz" id="ggY-MR-9Mc"/>
                         <outlet property="addPostButtonView" destination="2X1-z6-YYI" id="29a-ir-r6y"/>
                         <outlet property="controlsView" destination="MDY-6h-BIf" id="fnq-iS-WsI"/>
                         <outlet property="headerView" destination="oge-zi-27c" id="ZdW-6R-Wej"/>
@@ -249,6 +253,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXR-Bv-UG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Jjf-4s-mFH">
+                    <connections>
+                        <action selector="addImgImageViewPressedWith_sender:" destination="Ec2-Mv-op1" id="Izy-ig-l1v"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="936.23188405797111" y="123.09782608695653"/>
         </scene>
