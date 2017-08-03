@@ -11,8 +11,23 @@ import Firebase
 import SwiftKeychainWrapper
 
 class FeedViewController: UIViewController {
+    @IBOutlet weak var headerView: FancyView!
+    @IBOutlet weak var controlsView: FancyView!
+    @IBOutlet weak var addImgImageView: CircleImageView!
+    @IBOutlet weak var addPostButtonView: RoundButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        headerView.addDropShadow()
+        
+        controlsView.addDropShadow()
+        
+        addImgImageView.addDropShadow()
+        addImgImageView.rounded()
+        
+        addPostButtonView.addDropShadow()
+        addPostButtonView.rounded()
     }
     
     @IBAction func signOutButtonPressed(_ sender: UIButton) {

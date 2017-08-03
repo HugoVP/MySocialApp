@@ -18,6 +18,10 @@
 		9A7CD5701F3254EA00E79FF4 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7CD56C1F3254EA00E79FF4 /* PostTableViewCell.xib */; };
 		9A7CD5721F32770800E79FF4 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7CD5711F32770800E79FF4 /* CircleImageView.swift */; };
 		9A7CD5731F32770800E79FF4 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7CD5711F32770800E79FF4 /* CircleImageView.swift */; };
+		9A7CD5761F3285AF00E79FF4 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7CD5751F3285AF00E79FF4 /* DropShadow.swift */; };
+		9A7CD5771F3285AF00E79FF4 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7CD5751F3285AF00E79FF4 /* DropShadow.swift */; };
+		9A7CD5791F32963A00E79FF4 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7CD5781F32963A00E79FF4 /* RoundedView.swift */; };
+		9A7CD57A1F32963A00E79FF4 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7CD5781F32963A00E79FF4 /* RoundedView.swift */; };
 		9A81E29A1F2CFAEC003A6F0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81E2991F2CFAEC003A6F0A /* AppDelegate.swift */; };
 		9A81E29F1F2CFAEC003A6F0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A81E29D1F2CFAEC003A6F0A /* Main.storyboard */; };
 		9A81E2A11F2CFAEC003A6F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A81E2A01F2CFAEC003A6F0A /* Assets.xcassets */; };
@@ -59,6 +63,8 @@
 		9A7CD56B1F3254EA00E79FF4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		9A7CD56C1F3254EA00E79FF4 /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		9A7CD5711F32770800E79FF4 /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		9A7CD5751F3285AF00E79FF4 /* DropShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
+		9A7CD5781F32963A00E79FF4 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		9A81E2961F2CFAEC003A6F0A /* MySocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A81E2991F2CFAEC003A6F0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A81E29E1F2CFAEC003A6F0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +115,15 @@
 			name = Dev;
 			sourceTree = "<group>";
 		};
+		9A7CD5741F32856200E79FF4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9A7CD5751F3285AF00E79FF4 /* DropShadow.swift */,
+				9A7CD5781F32963A00E79FF4 /* RoundedView.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		9A81E28D1F2CFAEC003A6F0A = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +146,7 @@
 		9A81E2981F2CFAEC003A6F0A /* MySocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				9A7CD5741F32856200E79FF4 /* Protocols */,
 				9A81E2B21F2CFC5E003A6F0A /* Model */,
 				9A81E2B01F2CFBFD003A6F0A /* View */,
 				9A81E2AD1F2CFBD9003A6F0A /* Controller */,
@@ -433,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7CD5761F3285AF00E79FF4 /* DropShadow.swift in Sources */,
 				9A8207711F2FAE3A00AE8A00 /* FancyField.swift in Sources */,
 				9A81E29A1F2CFAEC003A6F0A /* AppDelegate.swift in Sources */,
 				9A82076F1F2FACF700AE8A00 /* RoundButton.swift in Sources */,
@@ -440,6 +457,7 @@
 				9A81E2AF1F2CFBF6003A6F0A /* SignInViewController.swift in Sources */,
 				9A82076A1F2FAB3000AE8A00 /* FancyView.swift in Sources */,
 				9A7CD5721F32770800E79FF4 /* CircleImageView.swift in Sources */,
+				9A7CD5791F32963A00E79FF4 /* RoundedView.swift in Sources */,
 				9A7CD5691F3247CC00E79FF4 /* FeedViewController.swift in Sources */,
 				9A82076D1F2FAB7D00AE8A00 /* Constants.swift in Sources */,
 				9A7CD56D1F3254EA00E79FF4 /* PostTableViewCell.swift in Sources */,
@@ -450,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7CD5771F3285AF00E79FF4 /* DropShadow.swift in Sources */,
 				9AF471611F31365D00003837 /* FancyField.swift in Sources */,
 				9AF471621F31365D00003837 /* AppDelegate.swift in Sources */,
 				9AF471631F31365D00003837 /* RoundButton.swift in Sources */,
@@ -457,6 +476,7 @@
 				9AF471651F31365D00003837 /* SignInViewController.swift in Sources */,
 				9AF471661F31365D00003837 /* FancyView.swift in Sources */,
 				9A7CD5731F32770800E79FF4 /* CircleImageView.swift in Sources */,
+				9A7CD57A1F32963A00E79FF4 /* RoundedView.swift in Sources */,
 				9A7CD56A1F3247CC00E79FF4 /* FeedViewController.swift in Sources */,
 				9AF471671F31365D00003837 /* Constants.swift in Sources */,
 				9A7CD56E1F3254EA00E79FF4 /* PostTableViewCell.swift in Sources */,

@@ -13,11 +13,21 @@ import Firebase
 import SwiftKeychainWrapper
 
 class SignInViewController: UIViewController {
+    @IBOutlet weak var headerView: FancyView!
+    @IBOutlet weak var fbButtonView: RoundButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButtonView: FancyButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        headerView.addDropShadow()
+        
+        fbButtonView.addDropShadow()
+        fbButtonView.rounded()
+        
+        signInButtonView.addDropShadow()
     }
     
     override func viewDidAppear(_ animated: Bool) {
