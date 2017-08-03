@@ -33,6 +33,12 @@ class FeedViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PostCell.self)
+        
+        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+            if let snapshotValue = snapshot.value {
+                print("snapshot.value: \(snapshotValue)")
+            }
+        })
     }
     
     @IBAction func signOutButtonPressed(_ sender: UIButton) {

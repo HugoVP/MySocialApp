@@ -85,7 +85,7 @@ class SignInViewController: UIViewController {
     
     func completeSignInForUser(withID userID: String, provider: String) {
         let userData = ["provider": provider]
-        DataService.instance.createFirebaseDBUser(uid: userID, data: userData)
+        DataService.ds.createFirebaseDBUser(uid: userID, data: userData)
         let keychainResult = KeychainWrapper.standard.set(userID, forKey: KEY_UID)
         print("AUTH: Data saved to keychain: \(keychainResult)")
         performSegue(withIdentifier: "SegueToFeedViewController", sender: nil)

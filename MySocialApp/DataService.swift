@@ -12,7 +12,7 @@ import Firebase
 let DB_BASE = Database.database().reference()
 
 class DataService {
-    static let instance = DataService()
+    static let ds = DataService()
     
     private var _REF_BASE = DB_BASE
     private var _REF_USERS = DB_BASE.child("users")
@@ -26,7 +26,7 @@ class DataService {
         return _REF_USERS
     }
     
-    var REF_POST: DatabaseReference {
+    var REF_POSTS: DatabaseReference {
         return _REF_POSTS
     }
     
