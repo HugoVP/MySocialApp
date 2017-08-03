@@ -17,6 +17,8 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var addPostButtonView: RoundButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var posts = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,9 +37,23 @@ class FeedViewController: UIViewController {
         tableView.register(PostCell.self)
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
-            if let snapshotValue = snapshot.value {
-                print("snapshot.value: \(snapshotValue)")
+            if let snaps = snapshot.children.allObjects as? [DataSnapshot] {
+                snaps.forEach { (snap) in
+                    print("snap: \(snap)")
+                    
+                    if let postDict = snap.value as? Dictionary<String, Any> {
+                        let post = Post(
+                            postKey: snap.key,
+                            data: postDict
+                        )
+                        
+                        self.posts.append(post)
+                        print("post: \(post)")
+                    }
+                }
             }
+            
+            self.tableView.reloadData()
         })
     }
     
@@ -61,12 +77,15 @@ extension FeedViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.row]
+//        print("post: \(post)")
+        
         let postCell = tableView.dequeueReusableCell(for: indexPath) as PostCell
-        postCell.configureCell(withPost: Post(username: "Test User"))
+        postCell.configurePostCell(post)
         
         return postCell
     }
