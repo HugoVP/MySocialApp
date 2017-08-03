@@ -83,22 +83,25 @@ class SignInViewController: UIViewController {
         view.endEditing(true)
     }
     
+    func completeSignInForUser(withID userID: String, provider: String) {
+        let userData = ["provider": provider]
+        DataService.instance.createFirebaseDBUser(uid: userID, data: userData)
+        let keychainResult = KeychainWrapper.standard.set(userID, forKey: KEY_UID)
+        print("AUTH: Data saved to keychain: \(keychainResult)")
+        performSegue(withIdentifier: "SegueToFeedViewController", sender: nil)
+    }
+    
     func firebaseAuth(_ credencial: AuthCredential) {
         Auth.auth().signIn(with: credencial) { (user, err) in
             if err != nil {
                 print("AUTH: Unable to authenticate with Firebase: \(String(describing: err!))")
             } else {
                 print("AUTH: Successfully authenticated with Firebase")
-                self.completeSignInWith(user)
+                
+                if let userID = user?.uid {
+                    self.completeSignInForUser(withID: userID, provider: credencial.provider)
+                }
             }
-        }
-    }
-    
-    func completeSignInWith(_ user: User?) {
-        if user != nil, let userID = user?.uid {
-            let keychainResult = KeychainWrapper.standard.set(userID, forKey: KEY_UID)
-            print("AUTH: Data saved to keychain: \(keychainResult)")
-            performSegue(withIdentifier: "SegueToFeedViewController", sender: nil)
         }
     }
 
@@ -127,12 +130,18 @@ class SignInViewController: UIViewController {
                             print("AUTH: Unable to authenticate with Firebase using mail: \(String(describing: err!))")
                         } else {
                             print("AUTH: Successfully authenticated with Firebase using mail; account created")
-                            self.completeSignInWith(user)
+                            
+                            if let userID = user?.uid, let provider = user?.providerID {
+                                self.completeSignInForUser(withID: userID, provider: provider)
+                            }
                         }
                     }
                 } else {
                     print("AUTH: Successfully authenticated with Firebase using mail")
-                    self.completeSignInWith(user)
+                    
+                    if let userID = user?.uid, let provider = user?.providerID {
+                        self.completeSignInForUser(withID: userID, provider: provider)
+                    }
                 }
             }
         }
