@@ -36,7 +36,7 @@ class PostCell: UITableViewCell, NibLoadableView {
             ref.getData(maxSize: 2 * 1024 * 1024) { (data, err) in
                 if err != nil {
                     print("Unable to download image from Firebase Storage: \(String(describing: err))")
-                } else { 
+                } else {
                     print("Image downloaded from Firebase Storage")
                     
                     if data != nil {
