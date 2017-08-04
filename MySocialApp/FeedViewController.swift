@@ -19,6 +19,7 @@ class FeedViewController: UIViewController {
     
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
+    static var imageChache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class FeedViewController: UIViewController {
         
         controlsView.addDropShadow()
         
-//        addImgImageView.addDropShadow()
+        addImgImageView.addDropShadow()
         addImgImageView.rounded()
         
         addPostButtonView.addDropShadow()
@@ -51,6 +52,8 @@ class FeedViewController: UIViewController {
                         )
                         
                         self.posts.append(post)
+                        
+                        print("POST: \(post)")
                     }
                 }
             }
@@ -89,7 +92,14 @@ extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
         let postCell = tableView.dequeueReusableCell(for: indexPath) as PostCell
-        postCell.configureCell(post)
+        
+//        print("post.imageUrl: \(post)")
+        
+        if let postImage = FeedViewController.imageChache.object(forKey: post.imageUrl as NSString) {
+            postCell.configureCell(post, image: postImage)
+        } else {
+            postCell.configureCell(post)
+        }
         
         return postCell
     }
