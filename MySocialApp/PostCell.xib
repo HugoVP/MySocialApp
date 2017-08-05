@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="512"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="512"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="511.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iw-wo-7Rt" customClass="FancyView" customModule="MySocialApp" customModuleProvider="target">
@@ -39,6 +39,7 @@
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-heart" translatesAutoresizingMaskIntoConstraints="NO" id="pmm-49-XLa">
                                         <rect key="frame" x="279" y="0.0" width="64" height="64"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="3Hw-0G-oHU"/>
                                             <constraint firstAttribute="width" constant="64" id="pCG-wN-FHo"/>
@@ -100,6 +101,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="captionLabelView" destination="7QG-RA-OBB" id="jgY-UB-7ex"/>
+                <outlet property="likesImageView" destination="pmm-49-XLa" id="oij-ec-LBo"/>
                 <outlet property="likesLabelView" destination="HlW-Ex-DGY" id="NhI-hd-Gus"/>
                 <outlet property="postImageView" destination="ULW-qA-7CM" id="4Du-OG-neR"/>
                 <outlet property="profileImageView" destination="aBp-n6-AI4" id="Cza-9T-jLv"/>
